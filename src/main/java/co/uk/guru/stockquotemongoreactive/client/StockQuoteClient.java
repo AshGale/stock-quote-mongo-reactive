@@ -28,6 +28,7 @@ public class StockQuoteClient {
                 .uri(root)
                 .accept(MediaType.APPLICATION_STREAM_JSON)
                 .retrieve()
-                .bodyToFlux(Quote.class);
+                .bodyToFlux(Quote.class)
+                .log();
     }
 }
