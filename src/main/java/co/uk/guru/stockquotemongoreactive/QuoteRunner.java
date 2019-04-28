@@ -20,7 +20,7 @@ public class QuoteRunner implements CommandLineRunner {
 
         Flux<Quote> quoteFlux = stockQuoteClient.getQuoteStream();
 
-        //quoteFlux.subscribe(System.out::println);//commented out due to run forever
+        //quoteFlux.subscribe(System.out::println);
 
     }
 }
