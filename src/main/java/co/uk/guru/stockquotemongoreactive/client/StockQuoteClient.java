@@ -13,13 +13,13 @@ import reactor.core.publisher.Flux;
 @ConfigurationProperties("host")
 public class StockQuoteClient {
 
-    private String host;
+    private String path;
     private String port;
     private String root;
 
     public Flux<Quote> getQuoteStream(){
 
-        String url = "http://" + host + ":" + port;
+        String url = "http://" + path + ":" + port;
 
         return WebClient.builder()
                 .baseUrl(url)
@@ -28,7 +28,6 @@ public class StockQuoteClient {
                 .uri(root)
                 .accept(MediaType.APPLICATION_STREAM_JSON)
                 .retrieve()
-                .bodyToFlux(Quote.class)
-                .log();
+                .bodyToFlux(Quote.class);
     }
 }
